@@ -7,18 +7,37 @@ import 'word_marker.dart';
 
 /// Emphasizes [words] in a [text] by making them bold.
 class Emphasize extends StatelessWidget {
-  const Emphasize({
+  Emphasize({
     required this.text,
     required this.words,
+    TextStyle? textStyle,
+    TextStyle? wordStyle,
     this.caseSensitive = false,
     Key? key,
-  }) : super(key: key);
+  }) : super(key: key) {
+    this.textStyle = textStyle ??
+        const TextStyle(
+          color: Colors.black,
+          fontWeight: FontWeight.normal,
+        );
+
+    this.wordStyle = wordStyle ??
+        this.textStyle.copyWith(
+              fontWeight: FontWeight.bold,
+            );
+  }
 
   /// The text to emphasize words or word groups in.
   final String text;
 
   /// The words or word groups to emphasize in [text].
   final List<String> words;
+
+  /// Style for the non-emphasized parts of [text].
+  late final TextStyle textStyle;
+
+  /// Style for items in [words].
+  late final TextStyle wordStyle;
 
   /// If `true`, [words] are matched in [text] case-sensitively.
   /// Otherwise, [words] are matched in [text] case-insensitively.
@@ -37,6 +56,8 @@ class Emphasize extends StatelessWidget {
         children: buildEmphasizedTextWidgets(
           text: text,
           markers: getBlockMarkers(rawMarkers),
+          textStyle: textStyle,
+          wordStyle: wordStyle,
         ),
       ),
     );

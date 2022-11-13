@@ -9,6 +9,8 @@ void main() {
         text: '',
         words: const <String>[],
         caseSensitive: false,
+        textStyle: const TextStyle(),
+        wordStyle: const TextStyle(),
         key: UniqueKey(),
       ),
       isA<Emphasize>(),

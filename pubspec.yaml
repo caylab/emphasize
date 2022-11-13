@@ -1,6 +1,6 @@
 name: emphasize
 description: Lightweight customizable widget to display text with highlighted words or word groups.
-version: 0.9.0
+version: 1.0.0
 homepage: https://github.com/caylab/emphasize
 
 environment:
