@@ -77,8 +77,8 @@ void main() {
       ];
       final List<WordMarker> expected = <WordMarker>[
         WordMarker(type: MarkerType.start, index: 0),
-        WordMarker(type: MarkerType.start, index: 2),
         WordMarker(type: MarkerType.end, index: 2),
+        WordMarker(type: MarkerType.start, index: 2),
         WordMarker(type: MarkerType.end, index: 3),
       ];
 
@@ -328,6 +328,8 @@ void main() {
       ];
       List<WordMarker> expected = <WordMarker>[
         WordMarker(type: MarkerType.start, index: 0),
+        WordMarker(type: MarkerType.end, index: 10),
+        WordMarker(type: MarkerType.start, index: 10),
         WordMarker(type: MarkerType.end, index: 20),
       ];
 
@@ -421,10 +423,4 @@ void main() {
       );
     });
   });
-
-  // group('getStyleByTextPart()', () {
-  //   test('', () {
-  //
-  //   });
-  // });
 }
