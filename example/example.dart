@@ -10,9 +10,9 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var emphasizedText = const Emphasize(
+    var emphasizedText = Emphasize(
       text: 'The quick brown Fox jumps over the lazy Dog',
-      words: <String>['brown fox', 'lazy dog'],
+      words: const <String>['brown fox', 'lazy dog'],
       caseSensitive: false,
     );
 
