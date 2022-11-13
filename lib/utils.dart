@@ -132,21 +132,14 @@ String getMarkedText({
 }
 
 /// Returns a list of widgets representing texts parts, each with its own style.
-/// Text enclosed by start and end markers, gets the emphasized style.
-/// Text not enclosed by markers, gets the text style.
+/// Text enclosed by start and end markers, gets the given [wordStyle].
+/// Text not enclosed by markers, gets the given [textStyle].
 List<TextSpan> buildEmphasizedTextWidgets({
   required final String text,
   required List<WordMarker> markers,
+  required TextStyle textStyle,
+  required TextStyle wordStyle,
 }) {
-  TextStyle textStyle = const TextStyle(
-    color: Colors.black,
-    fontWeight: FontWeight.normal,
-  );
-
-  TextStyle wordStyle = textStyle.copyWith(
-    fontWeight: FontWeight.bold,
-  );
-
   int runningIndex = 0;
   List<TextSpan> emphasizedTextWidgets = <TextSpan>[];
 
