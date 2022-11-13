@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 import 'word_marker.dart';
 
@@ -14,9 +13,9 @@ int sortByIndex(final WordMarker a, final WordMarker b) {
     if (a.type == b.type) {
       return compareResult; // order does not matter
     } else if (a.type == MarkerType.start) {
-      return -1; // start marker comes first
+      return 1; // end marker comes first
     } else {
-      return 1; // end marker comes second
+      return -1; // start marker comes second
     }
   } else {
     return compareResult;
