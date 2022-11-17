@@ -1,4 +1,4 @@
-Highlights custom words or word groups in a text.
+Highlight text, words or word groups within a text, using custom styles.
 
 This package has no issue with numbers or special characters in the text or highlighted words.
 It can also easily handle overlapping words or words embedded within each other.
@@ -9,6 +9,7 @@ It can also easily handle overlapping words or words embedded within each other.
 * highlight words or word groups in a text
 * overlapping words are combined to one highlighted block
 * can handle numbers and special characters embedded in the text or words
+* standalone package - no dependencies (except Flutter)
 
 
 ## Getting started

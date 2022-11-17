@@ -9,8 +9,16 @@ void main() {
     for (int i = 0; i < actual.length; i++) {
       final WordMarker actualMarker = actual[i];
       final WordMarker expectedMarker = expected[i];
-      expect(actualMarker.type, expectedMarker.type, reason: '$MarkerType does not match at item position $i');
-      expect(actualMarker.index, expectedMarker.index, reason: '$WordMarker.index does not match at item position $i');
+      expect(
+        actualMarker.type,
+        expectedMarker.type,
+        reason: '$MarkerType does not match at item position $i',
+      );
+      expect(
+        actualMarker.index,
+        expectedMarker.index,
+        reason: '$WordMarker.index does not match at item position $i',
+      );
     }
   }
 
@@ -215,7 +223,8 @@ void main() {
 
     test(
         'word matches multiple text parts - '
-        'returns start and end marker for each match in order of appearance', () {
+        'returns start and end marker for each match in order of appearance',
+        () {
       const String text = 'test text abc test text abc';
       List<String> words = <String>['text'];
       List<WordMarker> expected = <WordMarker>[
@@ -238,7 +247,7 @@ void main() {
         'two words match overlapping text parts - '
         'returns start and end marker for each word', () {
       const String text = 'test text abc test text abc';
-      List<String> words = <String>['text abc', 'abc test'];
+      Iterable<String> words = <String>['text abc', 'abc test'];
       List<WordMarker> expected = <WordMarker>[
         WordMarker(type: MarkerType.start, index: 5),
         WordMarker(type: MarkerType.end, index: 13),
@@ -279,6 +288,14 @@ void main() {
       List<WordMarker> actual = getBlockMarkers(rawMarkers);
 
       expectEqualMarkers(actual, expected);
+    });
+
+    test('only closing marker - throws Exception', () {
+      List<WordMarker> rawMarkers = <WordMarker>[
+        WordMarker(type: MarkerType.end, index: 10),
+      ];
+
+      expect(() => getBlockMarkers(rawMarkers), throwsException);
     });
 
     test('two raw markers - returns markers unchanged', () {
@@ -421,6 +438,26 @@ void main() {
         () => getMarkedText(text: '', markers: markers),
         throwsRangeError,
       );
+    });
+
+    test('overlapping words - marked as one large block', () {
+      const text = 'The quick brown Fox jumps over the lazy Dog.';
+      final List<String> words = <String>[
+        'brown fox',
+        'Fox jumps',
+        'lazy',
+        'dog',
+      ];
+      const String expected =
+          'The quick [brown Fox jumps] over the [lazy] [Dog].';
+
+      final Iterable<WordMarker> blockMarkers = getBlockMarkers(
+        getRawMarkers(text: text, words: words, caseSensitive: false),
+      );
+
+      final String actual = getMarkedText(text: text, markers: blockMarkers);
+
+      expect(actual, expected);
     });
   });
 }

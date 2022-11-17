@@ -30,10 +30,10 @@ class Emphasize extends StatelessWidget {
   /// The text to emphasize words or word groups in.
   final String text;
 
-  /// The words or word groups to emphasize in [text].
-  final List<String> words;
-
-  /// Style for the non-emphasized parts of [text].
+  /// The words or word groups to highlight in [text].
+  final Iterable<String> words;
+  
+  /// Style for the non-highlighted parts of [text].
   late final TextStyle textStyle;
 
   /// Style for items in [words].

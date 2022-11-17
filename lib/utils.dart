@@ -26,7 +26,7 @@ int sortByIndex(final WordMarker a, final WordMarker b) {
 /// in the given [text]. This may include overlapping and embedded words.<br/>
 List<WordMarker> getRawMarkers({
   required final String text,
-  required final List<String> words,
+  required final Iterable<String> words,
   final bool caseSensitive = false,
 }) {
   if (text.trim().isEmpty || words.isEmpty) {
@@ -104,7 +104,7 @@ List<WordMarker> getBlockMarkers(final List<WordMarker> rawMarkers) {
 /// The [tags] must be exactly 2 characters - one opening and one closing tag.
 String getMarkedText({
   required final String text,
-  required final List<WordMarker> markers,
+  required final Iterable<WordMarker> markers,
   final String tags = '[]',
 }) {
   assert(
@@ -135,7 +135,7 @@ String getMarkedText({
 /// Text not enclosed by markers, gets the given [textStyle].
 List<TextSpan> buildEmphasizedTextWidgets({
   required final String text,
-  required List<WordMarker> markers,
+  required Iterable<WordMarker> markers,
   required TextStyle textStyle,
   required TextStyle wordStyle,
 }) {
