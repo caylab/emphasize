@@ -238,7 +238,7 @@ void main() {
         'two words match overlapping text parts - '
         'returns start and end marker for each word', () {
       const String text = 'test text abc test text abc';
-      List<String> words = <String>['text abc', 'abc test'];
+      Iterable<String> words = <String>['text abc', 'abc test'];
       List<WordMarker> expected = <WordMarker>[
         WordMarker(type: MarkerType.start, index: 5),
         WordMarker(type: MarkerType.end, index: 13),
