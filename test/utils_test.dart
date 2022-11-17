@@ -9,8 +9,16 @@ void main() {
     for (int i = 0; i < actual.length; i++) {
       final WordMarker actualMarker = actual[i];
       final WordMarker expectedMarker = expected[i];
-      expect(actualMarker.type, expectedMarker.type, reason: '$MarkerType does not match at item position $i');
-      expect(actualMarker.index, expectedMarker.index, reason: '$WordMarker.index does not match at item position $i');
+      expect(
+        actualMarker.type,
+        expectedMarker.type,
+        reason: '$MarkerType does not match at item position $i',
+      );
+      expect(
+        actualMarker.index,
+        expectedMarker.index,
+        reason: '$WordMarker.index does not match at item position $i',
+      );
     }
   }
 
@@ -215,7 +223,8 @@ void main() {
 
     test(
         'word matches multiple text parts - '
-        'returns start and end marker for each match in order of appearance', () {
+        'returns start and end marker for each match in order of appearance',
+        () {
       const String text = 'test text abc test text abc';
       List<String> words = <String>['text'];
       List<WordMarker> expected = <WordMarker>[
