@@ -3,7 +3,7 @@ DA:10,1
 DA:17,1
 DA:18,1
 DA:24,1
-DA:25,0
+DA:25,2
 DA:46,0
 DA:48,0
 DA:49,0
@@ -17,7 +17,7 @@ DA:58,0
 DA:59,0
 DA:60,0
 LF:17
-LH:4
+LH:5
 end_of_record
 SF:lib\utils.dart
 DA:9,1
@@ -46,7 +46,7 @@ DA:73,1
 DA:81,2
 DA:82,4
 DA:84,1
-DA:85,0
+DA:85,1
 DA:89,3
 DA:90,1
 DA:94,3
@@ -58,8 +58,8 @@ DA:118,1
 DA:119,1
 DA:121,2
 DA:122,2
-DA:124,0
-DA:126,0
+DA:124,4
+DA:126,1
 DA:128,2
 DA:136,0
 DA:143,0
@@ -73,7 +73,7 @@ DA:154,0
 DA:158,0
 DA:159,0
 LF:52
-LH:36
+LH:39
 end_of_record
 SF:lib\word_marker.dart
 DA:1,4
