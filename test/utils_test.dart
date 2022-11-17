@@ -439,5 +439,25 @@ void main() {
         throwsRangeError,
       );
     });
+
+    test('overlapping words - marked as one large block', () {
+      const text = 'The quick brown Fox jumps over the lazy Dog.';
+      final List<String> words = <String>[
+        'brown fox',
+        'Fox jumps',
+        'lazy',
+        'dog',
+      ];
+      const String expected =
+          'The quick [brown Fox jumps] over the [lazy] [Dog].';
+
+      final Iterable<WordMarker> blockMarkers = getBlockMarkers(
+        getRawMarkers(text: text, words: words, caseSensitive: false),
+      );
+
+      final String actual = getMarkedText(text: text, markers: blockMarkers);
+
+      expect(actual, expected);
+    });
   });
 }
