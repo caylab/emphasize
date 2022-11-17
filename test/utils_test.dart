@@ -290,6 +290,14 @@ void main() {
       expectEqualMarkers(actual, expected);
     });
 
+    test('only closing marker - throws Exception', () {
+      List<WordMarker> rawMarkers = <WordMarker>[
+        WordMarker(type: MarkerType.end, index: 10),
+      ];
+
+      expect(() => getBlockMarkers(rawMarkers), throwsException);
+    });
+
     test('two raw markers - returns markers unchanged', () {
       List<WordMarker> rawMarkers = <WordMarker>[
         WordMarker(type: MarkerType.start, index: 0),
