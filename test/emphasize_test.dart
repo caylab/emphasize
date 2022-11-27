@@ -8,9 +8,19 @@ void main() {
       Emphasize(
         text: '',
         words: const <String>[],
-        caseSensitive: false,
         textStyle: const TextStyle(),
         wordStyle: const TextStyle(),
+        caseSensitive: false,
+        textAlign: TextAlign.start,
+        textDirection: TextDirection.ltr,
+        softWrap: true,
+        overflow: TextOverflow.clip,
+        textScaleFactor: 1.0,
+        maxLines: 1,
+        locale: null,
+        strutStyle: StrutStyle.disabled,
+        textWidthBasis: TextWidthBasis.parent,
+        textHeightBehavior: null,
         key: UniqueKey(),
       ),
       isA<Emphasize>(),
@@ -30,8 +40,8 @@ void main() {
     final Emphasize emphasize = Emphasize(
       text: '',
       words: const <String>[],
-      caseSensitive: false,
       textStyle: textStyle,
+      caseSensitive: false,
       key: UniqueKey(),
     );
 

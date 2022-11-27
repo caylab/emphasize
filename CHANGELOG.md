@@ -1,3 +1,7 @@
+# 1.1.0
+
+* Add constructor parameters to configure the underlying widgets.
+
 # 1.0.1
 
 * Use `Iterable` where `List` is not necessary.
