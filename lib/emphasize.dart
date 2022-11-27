@@ -13,6 +13,16 @@ class Emphasize extends StatelessWidget {
     TextStyle? textStyle,
     TextStyle? wordStyle,
     this.caseSensitive = false,
+    this.textAlign = TextAlign.start,
+    this.textDirection,
+    this.softWrap = true,
+    this.overflow = TextOverflow.clip,
+    this.textScaleFactor = 1.0,
+    this.maxLines,
+    this.locale,
+    this.strutStyle,
+    this.textWidthBasis = TextWidthBasis.parent,
+    this.textHeightBehavior,
     Key? key,
   }) : super(key: key) {
     this.textStyle = textStyle ??
@@ -43,6 +53,39 @@ class Emphasize extends StatelessWidget {
   /// Otherwise, [words] are matched in [text] case-insensitively.
   final bool caseSensitive;
 
+  /// How the text should be aligned horizontally.
+  final TextAlign textAlign;
+
+  /// The directionality of the text (rtl, ltr).
+  final TextDirection? textDirection;
+
+  /// Whether the text should break at soft line breaks.
+  final bool softWrap;
+
+  /// How visual overflow should be handled.
+  final TextOverflow overflow;
+
+  /// The number of font pixels for each logical pixel.
+  final double textScaleFactor;
+
+  /// The maximum number of lines the text may have.
+  /// If the text exceeds the given number of lines, it will be truncated
+  /// according to [overflow].
+  final int? maxLines;
+
+  /// Used to select a font when the same Unicode character can
+  /// be rendered differently, depending on the locale.
+  final Locale? locale;
+
+  /// {@macro flutter.painting.textPainter.strutStyle}
+  final StrutStyle? strutStyle;
+
+  /// {@macro flutter.painting.textPainter.textWidthBasis}
+  final TextWidthBasis textWidthBasis;
+
+  /// {@macro flutter.dart:ui.textHeightBehavior}
+  final TextHeightBehavior? textHeightBehavior;
+
   @override
   Widget build(BuildContext context) {
     List<WordMarker> rawMarkers = getRawMarkers(
@@ -60,6 +103,16 @@ class Emphasize extends StatelessWidget {
           wordStyle: wordStyle,
         ),
       ),
+      textAlign: textAlign,
+      textDirection: textDirection,
+      softWrap: softWrap,
+      overflow: overflow,
+      textScaleFactor: textScaleFactor,
+      maxLines: maxLines,
+      locale: locale,
+      strutStyle: strutStyle,
+      textWidthBasis: textWidthBasis,
+      textHeightBehavior: textHeightBehavior,
     );
   }
 }
