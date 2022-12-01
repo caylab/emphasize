@@ -1,3 +1,7 @@
+# 1.1.1
+
+* update constructor and method docs
+
 # 1.1.0
 
 * Add constructor parameters to configure the underlying widgets.

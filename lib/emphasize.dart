@@ -5,7 +5,11 @@ import 'package:flutter/material.dart';
 import 'utils.dart';
 import 'word_marker.dart';
 
-/// Emphasizes [words] in a [text] by making them bold.
+/// Highlight [words] in a [text] by giving them a [wordStyle].
+/// The [text] itself can be styled using [textStyle].<br/>
+/// If [caseSensitive] is `true`, the given [words] will only match
+/// case-sensitively. Otherwise, they will match case-insensitively.<br/>
+/// Other parameters are derived from and behave like in [RichText].
 class Emphasize extends StatelessWidget {
   Emphasize({
     required this.text,
